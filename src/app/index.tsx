@@ -1,98 +1,119 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
-}
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.content}>
+        <Text style={styles.appName}>AutoLog</Text>
+        <Text style={styles.subtitle}>
+          Your vehicle, taken care of.
+        </Text>
 
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
+        <View style={styles.vehicleCard}>
+          <Text style={styles.label}>MY VEHICLE</Text>
+          <Text style={styles.vehicleName}>1998 Toyota Camry</Text>
+          <Text style={styles.mileage}>183,000 miles</Text>
+        </View>
 
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
+        <Text style={styles.sectionTitle}>Upcoming maintenance</Text>
 
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
+        <View style={styles.maintenanceCard}>
+          <View>
+            <Text style={styles.serviceName}>Oil change</Text>
+            <Text style={styles.serviceDetails}>Due in 500 miles</Text>
+          </View>
+          <Text style={styles.arrow}>›</Text>
+        </View>
+
+        <View style={styles.maintenanceCard}>
+          <View>
+            <Text style={styles.serviceName}>Tire rotation</Text>
+            <Text style={styles.serviceDetails}>Due in 1,000 miles</Text>
+          </View>
+          <Text style={styles.arrow}>›</Text>
+        </View>
+
+        <View style={styles.maintenanceCard}>
+          <View>
+            <Text style={styles.serviceName}>Hello World!</Text>
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#F5F7FA',
+  },
+  content: {
+    padding: 24,
+    paddingTop: 32,
+  },
+  appName: {
+    fontSize: 32,
+    fontWeight: '800',
+    color: '#172554',
+  },
+  subtitle: {
+    fontSize: 15,
+    color: '#64748B',
+    marginTop: 6,
+    marginBottom: 28,
+  },
+  vehicleCard: {
+    backgroundColor: '#172554',
+    padding: 22,
+    borderRadius: 18,
+    marginBottom: 32,
+  },
+  label: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#BFDBFE',
+    letterSpacing: 1.5,
+  },
+  vehicleName: {
+    fontSize: 23,
+    fontWeight: '700',
+    color: '#FFFFFF',
+    marginTop: 12,
+  },
+  mileage: {
+    fontSize: 16,
+    color: '#DBEAFE',
+    marginTop: 8,
+  },
+  sectionTitle: {
+    fontSize: 21,
+    fontWeight: '700',
+    color: '#172554',
+    marginBottom: 14,
+  },
+  maintenanceCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 14,
+    padding: 18,
+    marginBottom: 12,
     flexDirection: 'row',
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
+    justifyContent: 'space-between',
     alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
   },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
+  serviceName: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#1E293B',
   },
-  title: {
-    textAlign: 'center',
+  serviceDetails: {
+    fontSize: 14,
+    color: '#64748B',
+    marginTop: 5,
   },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
+  arrow: {
+    fontSize: 28,
+    color: '#64748B',
   },
 });

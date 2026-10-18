@@ -1,56 +1,73 @@
-# Welcome to your Expo app 👋
+# AutoLog
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Overview
 
-## Get started
+AutoLog is a mobile application designed to help users manage their vehicles and keep track of important maintenance information in one place. The goal is to make it easier to monitor vehicle health, organize service records, track expenses, and stay on top of upcoming maintenance.
 
-1. Install dependencies
+The application is currently in its early development stage. The initial dashboard provides a starting point for the user interface, with vehicle information and upcoming maintenance items serving as the foundation for future functionality.
 
-   ```bash
-   npm install
-   ```
+## Planned Features
 
-2. Start the app
+- __Vehicle Management__: Add and manage vehicles, including their make, model, year, and current mileage.
+- __Maintenance Tracking__: Record completed services, repairs, and other maintenance activities.
+- __Maintenance Reminders__: Track upcoming maintenance based on mileage or time intervals.
+- __Expense Tracking__: Record vehicle-related expenses and review maintenance costs over time.
+- __Document Organization__: Keep important vehicle documents and service records organized.
+- __Data Persistence__: Store vehicle information and maintenance history so that data remains available between sessions and across devices.
 
-   ```bash
-   npx expo start
-   ```
+These features will be developed incrementally as the project progresses.
 
-In the output, you'll find options to open the app in a
+## Development Approach
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+AutoLog is being developed as a mobile application using React Native, Expo, and TypeScript. This stack allows me to build a cross-platform application while developing and testing on my iPhone.
 
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+I plan to build the application incrementally, starting with the user interface and core vehicle management functionality before introducing more complex features.
 
-## Get a fresh project
+My development plan includes:
 
-When you're ready, run:
+1. Building the main dashboard and navigation.
 
-```bash
-npm run reset-project
-```
+2. Implementing vehicle creation, editing, and mileage tracking.
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+3. Adding maintenance records, service history, and reminders.
 
-### Other setup steps
+4. Introducing persistent data storage and user authentication.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+5. Improving reliability through testing, debugging, and code organization.
 
-## Learn more
+6. Exploring additional features, such as document uploads and automated receipt data extraction.
 
-To learn more about developing your project with Expo, look at the following resources:
+The application will initially focus on core functionality before expanding into more advanced features.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Learning Goals
 
-## Join the community
+This project is an opportunity to strengthen my software engineering skills by building a complete application from the ground up. In particular, I hope to gain experience with:
 
-Join our community of developers creating universal apps.
+- React Native, Expo, and TypeScript for mobile application development.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Component-based architecture, state management, and application navigation.
+
+- Data modeling and database integration.
+
+- API integration, authentication, and secure data handling.
+
+- Testing, debugging, and maintaining a growing codebase.
+
+- Git and GitHub workflows for version control and project documentation.
+
+- Planning and implementing a project through incremental development.
+
+Beyond learning individual technologies, I want to improve my ability to design software, break larger problems into manageable tasks, and make thoughtful engineering decisions throughout the development process.
+
+## Current Status
+
+AutoLog is in the initial development stage. The current implementation includes a basic dashboard displaying example vehicle information and upcoming maintenance items. The planned features above have not necessarily been implemented yet and will be added over time.
+
+## Technology Stack
+
+- __Language:__ Typescript
+- __Mobile Framework:__ React Native
+- __Development Platoform:__ Expo
+- __Version Control:__ Git and GitHub
+
+Additional technologies will be introduced as the application develops. 
